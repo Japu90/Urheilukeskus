@@ -1,0 +1,25 @@
+﻿<?php
+
+if (isset($_GET['search'])) {
+    try {
+        require_once './PDOyhteys.php';
+        $sql = "UPDATE movies SET filmName = :filmName, 
+            filmDescription = :filmDescription, 
+            filmImage = :filmImage,  
+            filmPrice = :filmPrice,  
+            filmReview = :filmReview  
+            WHERE filmID = :filmID";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':AlkamisAika',  $_GET['AlkamisAika'] );
+		$stmt->bindValue(':SukuNimi', '%' . $_GET['SukuNimi'] . '%' );
+        $stmt->execute();
+		//echo $_GET['SukuNimi'];
+        $errorInfo = $stmt->errorInfo();
+        if (isset($errorInfo[2])) {
+            $error = $errorInfo[2];
+        }
+    } catch (Exception $e) {
+        $error = $e->getMessage();
+    }
+}
+?>

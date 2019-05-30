@@ -1,0 +1,68 @@
+﻿
+INSERT INTO Asiakas ( AsiakasID, EtuNimi, SukuNimi, osoite, PostitoimiPaikka, PostiNumero, Puhelin, sahkoposti )
+Values (0001, 'Jarno', 'Kuisma', 'Kotikatu 5', 'vaasa', 65200, 040456789, 'japi@gmail.com');
+INSERT INTO Asiakas ( AsiakasID, EtuNimi, SukuNimi, osoite, PostitoimiPaikka, PostiNumero, Puhelin, sahkoposti )
+Values (0002, 'Matti', 'Meikäläinen', 'Saarikuja 4', 'akaa', 37960, 043426481, 'matti@gmail.com');
+INSERT INTO Asiakas ( AsiakasID, EtuNimi, SukuNimi, osoite, PostitoimiPaikka, PostiNumero, Puhelin, sahkoposti )
+Values (0003, 'Maija', 'Tapola', 'Koulukatu 19', 'Tampere', 33101, 044157492, 'maija@gmail.com');
+INSERT INTO Asiakas ( AsiakasID, EtuNimi, SukuNimi, osoite, PostitoimiPaikka, PostiNumero, Puhelin, sahkoposti )
+Values (0004, 'Pertti', 'Possu', 'Lyninkuja 69', 'Turku', 20020, 04012345678, 'Pertti@gmail.com');
+INSERT INTO Asiakas ( AsiakasID, EtuNimi, SukuNimi, osoite, PostitoimiPaikka, PostiNumero, Puhelin, sahkoposti )
+Values (0005, 'Keijo', 'Kulmala', 'Varastokuja 7', 'Viiala', 37860, 05012345678, 'keijo@gmail.com');
+INSERT INTO Asiakas ( AsiakasID, EtuNimi, SukuNimi, osoite, PostitoimiPaikka, PostiNumero, Puhelin, sahkoposti )
+Values (0006, 'Mervi', 'Mattila', 'Kuusitie 810', 'Jyväskylä', 87462, 044756359, 'Mervi@gmail.com');
+
+INSERT INTO varausjarjestelma ( VarausID, AsiakasID, LajiID, PVM, AlkamisAika, LoppumisAika )
+Values (1000, 0001, 1111, '15.3.2017', '15:00', '17:00');
+INSERT INTO varausjarjestelma ( VarausID, AsiakasID, LajiID, PVM, AlkamisAika, LoppumisAika )
+Values (2000, 0002, 2222, '16.3.2017', '12:00', '14:00');
+INSERT INTO varausjarjestelma ( VarausID, AsiakasID, LajiID, PVM, AlkamisAika, LoppumisAika )
+Values (3000, 0003, 3333, '17.3.2017', '16:00', '18:00');
+INSERT INTO varausjarjestelma ( VarausID, AsiakasID, LajiID, PVM, AlkamisAika, LoppumisAika )
+Values (4000, 0004, 4444, '18.3.2017', '18:00', '20:00');
+INSERT INTO varausjarjestelma ( VarausID, AsiakasID, LajiID, PVM, AlkamisAika, LoppumisAika )
+Values (5000, 0005, 5555, '19.3.2017', '19:00', '21:00');
+INSERT INTO varausjarjestelma ( VarausID, AsiakasID, LajiID, PVM, AlkamisAika, LoppumisAika )
+Values (6000, 0006, 6666, '20.3.2017', '13:00', '11:00');
+
+
+
+INSERT INTO UrheiluLaji ( LajiID, PaikkaID, Laji )
+Values (1111, 1234, 'Jalkapallo');
+INSERT INTO UrheiluLaji ( LajiID, PaikkaID, Laji )
+Values (2222, 4123, 'Jääkiekko');
+INSERT INTO UrheiluLaji ( LajiID, PaikkaID, Laji )
+Values (3333, 3412, 'Yleisurheilu');
+INSERT INTO UrheiluLaji ( LajiID, PaikkaID, Laji )
+Values (4444, 4321, 'Golf');
+INSERT INTO UrheiluLaji ( LajiID, PaikkaID, Laji )
+Values (5555, 5678, 'Futsal');
+INSERT INTO UrheiluLaji ( LajiID, PaikkaID, Laji )
+Values (6666, 8765, 'Uppopallo');
+
+
+INSERT INTO Urheilupaikka ( PaikkaID, TyontekijaID, Nimi, YhteydenottoPuh )
+Values (1234, 0011, 'Jalkopallo stadion', 0612345671 );
+INSERT INTO Urheilupaikka ( PaikkaID, TyontekijaID, Nimi, YhteydenottoPuh )
+Values (4123, 0022, 'Jääkiekko halli', 0612345672 );
+INSERT INTO Urheilupaikka ( PaikkaID, TyontekijaID, Nimi, YhteydenottoPuh )
+Values (3412, 0033, 'Urheilukenttä', 0612345673 );
+INSERT INTO Urheilupaikka ( PaikkaID, TyontekijaID, Nimi, YhteydenottoPuh )
+Values (4321, 0044, 'Golf kenttä', 0612345674 );
+INSERT INTO Urheilupaikka ( PaikkaID, TyontekijaID, Nimi, YhteydenottoPuh )
+Values (5678, 0055, 'Palloilu halli', 0612345675 );
+INSERT INTO Urheilupaikka ( PaikkaID, TyontekijaID, Nimi, YhteydenottoPuh )
+Values (8765, 0066, 'Uimahalli', 0612345676 );
+
+INSERT INTO Tyontekija ( TyontekijaID, TyokohdeID, EtuNimi, SukuNimi, Osoite, PostitoimiPaikka, POstinumero, Puhelin, sahkoposti )
+Values (0011, 1, 'Heikki', 'Hela', 'Tohlopinkatu 5', 'Vaasa', 65200, 0401597534, 'hela@aku.fi' );
+INSERT INTO Tyontekija ( TyontekijaID, TyokohdeID, EtuNimi, SukuNimi, Osoite, PostitoimiPaikka, POstinumero, Puhelin, sahkoposti )
+Values (0022, 2, 'Jonne', 'Luoto', 'Palokatu 5', 'Vaasa', 65100, 0401596814, 'jonne@aku.fi' );
+INSERT INTO Tyontekija ( TyontekijaID, TyokohdeID, EtuNimi, SukuNimi, Osoite, PostitoimiPaikka, POstinumero, Puhelin, sahkoposti )
+Values (0033, 3, 'Santeri', 'Kirkas', 'Vaasakatu 5', 'Vaasa', 65200, 0401534234, 'sane@aku.fi' );
+INSERT INTO Tyontekija ( TyontekijaID, TyokohdeID, EtuNimi, SukuNimi, Osoite, PostitoimiPaikka, POstinumero, Puhelin, sahkoposti )
+Values (0044, 4, 'Jarno', 'Kuisma', 'Palosaarentie 58', 'Vaasa', 65200, 0402496574, 'Japi@aku.fi' );
+INSERT INTO Tyontekija ( TyontekijaID, TyokohdeID, EtuNimi, SukuNimi, Osoite, PostitoimiPaikka, POstinumero, Puhelin, sahkoposti )
+Values (0055, 5, 'Juuso', 'Hautala', 'Rantakatu 5', 'Vaasa', 65100, 0403796524, 'jauso@aku.fi' );
+INSERT INTO Tyontekija ( TyontekijaID, TyokohdeID, EtuNimi, SukuNimi, Osoite, PostitoimiPaikka, POstinumero, Puhelin, sahkoposti )
+Values (0066, 6, 'Kaisa', 'Mikkola', 'Kampustie 3', 'Vaasa', 65200, 0406521244, 'Kaisa@aku.fi' );

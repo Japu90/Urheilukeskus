@@ -1,0 +1,71 @@
+CREATE TABLE asiakas(
+AsiakasID int NOT NULL ,
+EtuNimi varchar(40) NOT NULL ,
+SukuNimi varchar (40) NOT NULL,
+Osoite varchar(40) NOT NULL,
+PostitoimiPaikka varchar(40) NOT NULL,
+PostiNumero int NOT NULL,
+Puhelin varchar (40) NOT NULL,
+Sahkoposti varchar (40) NOT NULL,
+PRIMARY KEY (AsiakasID ) ) ENGINE = InnoDB ;
+
+
+	CREATE TABLE Tyontekija(
+	TyontekijaID int NOT NULL ,
+	TyokohdeID int NOT NULL ,
+	EtuNimi varchar (40) NOT NULL,
+	SukuNimi varchar (40) NOT NULL,
+	Osoite varchar (40) NOT NULL,
+	PostitoimiPaikka varchar (40) NOT NULL,
+	Postinumero int NOT NULL,
+	Puhelin varchar (40) NOT NULL,
+	Sahkoposti varchar(40) NOT NULL,
+	PRIMARY KEY (TyontekijaID) ) ENGINE = InnoDB ; 	
+
+
+	CREATE TABLE Urheilupaikka(
+	PaikkaID int NOT NULL ,
+	TyontekijaID int NOT NULL ,
+	Nimi varchar (40) NOT NULL,
+	YhteydenottoPuh varchar (40) NOT NULL,
+	INDEX indexTyokohdeID (TyontekijaID),
+	PRIMARY KEY (PaikkaID ),
+	FOREIGN KEY (TyontekijaID) REFERENCES Tyontekija(TyontekijaID)) ENGINE = InnoDB ;
+	
+	CREATE TABLE Valineet(
+	ValineID int NOT NULL ,
+	Hinta decimal (9,2) NOT NULL,
+	Nimi varchar (40) NOT NULL ,
+	PRIMARY KEY (ValineID )) ENGINE = InnoDB;
+	
+	CREATE TABLE UrheiluLaji(
+	LajiID int NOT NULL ,
+	PaikkaID int NOT NULL ,
+	Laji varchar (40) NOT NULL,
+	PRIMARY KEY (LajiID), 
+	FOREIGN KEY (PaikkaID) REFERENCES Urheilupaikka(PaikkaID)) ENGINE = InnoDB ;
+	
+	CREATE TABLE Varausjarjestelma(
+	VarausID int NOT NULL ,
+	AsiakasID int NOT NULL ,
+	LajiID int NOT NULL,
+	PVM date NOT NULL ,
+	AlkamisAika TIME (5) NOT NULL , 
+	LoppumisAika TIME (5) NOT NULL ,  
+	INDEX indexAsiakasID (AsiakasID),
+	INDEX indexLajiID (LajiID),
+	PRIMARY KEY (VarausID ) ,
+	FOREIGN KEY (AsiakasID) REFERENCES asiakas(AsiakasID) ,
+	FOREIGN KEY (LajiID) REFERENCES UrheiluLaji(LajiID)) ENGINE = InnoDB;
+	
+	CREATE TABLE Valinevuokraus(
+	VuokrausID int NOT NULL ,
+	VarausID int NOT NULL ,
+	ValineID int NOT NULL,
+	Hinta decimal (9,2),
+	Kappale int ,
+	INDEX indexVarausID (VarausID),
+	INDEX indexValineID (ValineID),
+	PRIMARY KEY (VuokrausID ) ,
+	FOREIGN KEY (VarausID) REFERENCES Varausjarjestelma(VarausID),
+	FOREIGN KEY (ValineID) REFERENCES Valineet(ValineID)) ENGINE = InnoDB;
